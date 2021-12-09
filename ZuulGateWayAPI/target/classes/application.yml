@@ -1,0 +1,23 @@
+server:
+  port: 1238
+  
+zuul:
+  routes:
+    stocks:
+      path: /stocks/**
+      service-id: stocks-microservice
+      strip-prefix: false
+    customers:
+      path: /customers/**
+      service-id: customers-microservice
+      strip-prefix: false
+
+spring:
+  application:
+    name: zuul-server
+
+# Discovery Server Access
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:4567/eureka/      
